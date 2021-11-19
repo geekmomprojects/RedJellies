@@ -28,3 +28,4 @@ Detecting the rate of speech does not require recognition of the actual speech c
 
 It isn't clear how much these algorithms can be simplified and what kind of processor power is required to run them. Speech rate could possibly be inferred from the rapidity of modulations in a speakers loudness which might be a simpler imlementation. More research is required into the efficiency and quality of various algorithms before any specific one could be chosen.
 
+![Simple System Diagram](https://github.com/geekmomprojects/RedJellies/blob/main/Week1/Week1ProjectDiagram.png)
