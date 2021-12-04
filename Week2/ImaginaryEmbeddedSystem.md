@@ -1,4 +1,4 @@
-# Exercise 2.1: Imaginary Embedded System - Idea project diagram
+# Exercise 2.1: Imaginary Embedded System - Idea Project Diagram
 
 Make a block diagram describing an embedded system you’d like to have or make. Be
 imaginative. Reality does not apply here.
