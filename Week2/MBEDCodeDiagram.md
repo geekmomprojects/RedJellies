@@ -17,3 +17,4 @@ I selected the DISCO-F429ZI board because it had many examples to choose from an
 
 The example program is DISCO-F429ZI_LEDs_Button, described as “Basic example showing how to drive the LEDs and Button”
 
+![MBED CODE Diagram](https://github.com/geekmomprojects/RedJellies/blob/main/Week2/Week2MBEDSoftwareDiagram.png)
