@@ -18,6 +18,6 @@ For simplified wiring, the trigger in this proposed prototype is a simple arcade
 An IR receiver connects to the processor. Upon receiving (and debouncing, as we don’t want false triggers) the IR signal, the processor activates a buzzer for several seconds,  then sends a signal to the motor controller which activates the servo.
 
 ### Block Diagram
-
+![Simple System Diagram](https://github.com/geekmomprojects/RedJellies/blob/main/Week2/Week2ProjectDiagram.png)
 
 
