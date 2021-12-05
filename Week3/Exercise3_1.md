@@ -1,6 +1,6 @@
 # Exercise 3.1
 
-## Investigate Project Board
+## Assignment: Investigate Project Board
 Look at the documents for the board you are condisering for your final project ([or any ST Discovery Board](https://www.st.com/en/evaluation-tools/stm32-discovery-kits.html#products)), 
 draw the hardware block diagram for the board. For peripherals, note the communication paths (SPI, I2C, etc).
 
@@ -13,4 +13,4 @@ Look at the datasheet for the processor and other documents. Answer these questi
 
 Look at one application note for this processor.
 
-## Project Board Investigation: STM32WB5MM-DK Discovery Kit
+## Board Investigation: STM32WB5MM-DK Discovery Kit
