@@ -18,12 +18,13 @@ Look at one application note for this processor.
 - The processor is an STM32WB5MMGH6
 - There is 1 Mbyte flash and 256 Kbytes of SRAM. There is also an 128-Mbit Quad-SPI NOR Flash memory. I do not understand how it differes from typical flash or what the extra descriptors mean (Quad-SPI, NOR), but will investigate to find out
 - There are a large number of peripherals built into the discovery board, including:
--- 0.96-in 128x64 OLED display
--- temperature sensor
--- accelerometer/gyroscope
--- time of flight/gesture detection sensor (I have an interest in AI/gesture detection, and will be attempting to see how this feature works)
--- digital microphone (this feature is particularly interesting because there is a demo app that sends audio from the board to an app which can connect to an online speech-to-text converter that works in close to real time. I have long wanted to build a speech rate detector, and this is a possible, though more complex than is needed, mechanism for it)
--- RGB LED (always of interest)
--- infrared LED
--- 3 Push buttons (2 user, 1 reset)
--- BLE
+  - 0.96-in 128x64 OLED display
+  - temperature sensor
+  - accelerometer/gyroscope
+  - time of flight/gesture detection sensor (I have an interest in AI/gesture detection, and will be attempting to see how this feature works)
+  - digital microphone (this feature is particularly interesting because there is a demo app that sends audio from the board to an app which can connect to an online speech-to-text converter that works in close to real time. I have long wanted to build a speech rate detector, and this is a possible, though more complex than is needed, mechanism for it)
+  - RGB LED (always of interest)
+  - infrared LED
+  - 3 Push buttons (2 user, 1 reset)
+  - Bluetooth 5, which is a feature I like to have in wearables, and will try to make use of in my final project
+- TIL that FPU means "Floating Point Unit" and the board has an "adaptive real-time accelerator" for this function
