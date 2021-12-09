@@ -16,7 +16,7 @@ Look at one application note for this processor.
 ## Board Investigation: STM32WB5MM-DK Discovery Kit
 
 - The processor is an STM32WB5MMGH6
-- There is 1 Mbyte flash and 256 Kbytes of SRAM. There is also an 128-Mbit Quad-SPI NOR Flash memory. I do not understand how it differes from typical flash or what the extra descriptors mean (Quad-SPI, NOR), but will investigate to find out
+- There is 1 Mbyte flash and 256 Kbytes of SRAM. There is also an 128-Mbit Quad-SPI NOR Flash memory. After googling it, I now understand the difference between NOR flash and NAND flash (standard). NOR is more expensive but about 3x faster for reading and can execute bitwise read, vs NAND, which is faster for writing and erasing.
 - There are a large number of peripherals built into the discovery board, including:
   - 0.96-in 128x64 OLED display
   - temperature sensor
