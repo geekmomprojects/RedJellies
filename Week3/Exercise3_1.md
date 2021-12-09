@@ -37,3 +37,5 @@ Look at one application note for this processor.
   - 3 watchdogs (and I'm looking forward to learning what those are)
   - Self-calibration
   - The ability to select clock source so that the sampling rate can be faster than the processor if the processor clock speed is slow to reduce power consumption
+
+I found the following application note for the STM32WB: [https://www.st.com/resource/en/application_note/an5289-building-wireless-applications-with-stm32wb-series-microcontrollers-stmicroelectronics.pdf](https://www.st.com/resource/en/application_note/an5289-building-wireless-applications-with-stm32wb-series-microcontrollers-stmicroelectronics.pdf) which discusses implementing wireless applications. It is 160 pages long, and I have skimmed it very briefly, but will go back to take a longer look later.
