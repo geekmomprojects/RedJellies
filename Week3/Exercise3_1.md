@@ -26,5 +26,14 @@ Look at one application note for this processor.
   - RGB LED (always of interest)
   - infrared LED
   - 3 Push buttons (2 user, 1 reset)
+  - touch sensor
   - Bluetooth 5, which is a feature I like to have in wearables, and will try to make use of in my final project
 - TIL that FPU means "Floating Point Unit" and the board has an "adaptive real-time accelerator" for this function
+- Every processor in the STM32WB line, including the STM32WB5M used on this board has a 16 bit ADC, with many amazing and wonderful features. Source: [https://www.youtube.com/watch?v=XWzzggtwIo8](https://www.youtube.com/watch?v=XWzzggtwIo8). These features include:
+  - adjustable sampling resolution to allow for faster sampling
+  - (up to) 16 IO inputs
+  - low processing modes, including delayed data conversion to reduce power consumption
+  - sampling may be triggered by software or timers/IO
+  - 3 watchdogs (and I'm looking forward to learning what those are)
+  - Self-calibration
+  - The ability to select clock source so that the sampling rate can be faster than the processor if the processor clock speed is slow to reduce power consumption
