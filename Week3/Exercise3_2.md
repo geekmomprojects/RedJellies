@@ -19,3 +19,15 @@ unit test framework. If you are writing more than 50 lines of code, you are goin
 direction.
 Turn in two source files (simulator and main test), and send a link to the
 #assignment-submission channel on Discord. Make sure the files are publicly viewable.
+
+## SPI Flash Test Code
+I read the datasheet for the flash to determine that the capacity is 8 MB, sector size is 4 KB and page size is 256 bytes. I implemented simulations of the read/write/erase functions declared in spi_flash.h file that create/read/write a disk file to emulate doing the same with flash memory.
+
+I also found it a bit difficult to compile simple C code on my desktop since I didn't have the enviroment set up correctly. In the end, it was easiest to just open an Ubuntu shell on my Windows desktop and create a Makefile to compile and link the code with gcc.
+
+The files in this exercise are:
+- *spi_flash.h* - the original header file with function declarations
+- *flash_simulator.h* parameters shared by the simulation functions
+- *flash_simulator.c* the simulation functions themselves which read/write/erase a disk file to emulate flash
+- *main.c* calls the simulation functions to test them
+- *Makefile* the usual compilation instructions
