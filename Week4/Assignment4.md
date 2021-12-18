@@ -5,11 +5,11 @@
 ## Code
 I did this project in stages. First simply making the LED blink, then toggling the LED inside an interrupt function triggered by a push button, and finally adding debouncing. Most of my time was spent learning the workings of the STM32Cube IDE.
 
-The ST32WBMMG-DK board has no built-in LED, so I added a standard LED and current limiting resistor to GPIO pin 11,and configured pin 11 as a GPIO output. 
+The ST32WBMMG-DK board has no built-in LED, so I added a standard LED and current limiting resistor to GPIO pin 11, and configured pin 11 as a GPIO output. 
 
-The ST32WBMMG-DK has two user push buttons, on pins PB12 and PB13. I selected Pin 12, configured with a pull-up resistor to trigger an interrupt on falling edge detection.
+The ST32WBMMG-DK has two user push buttons, on pins PB12 and PB13. I selected Pin 12, configured as a GPIO input with a pull-up resistor to trigger an interrupt on falling edge detection.
 
-The final, debounced code configuration is entirely in **main.c**. To allow debouncing, the LED pin state is toggled in _main(void)_ in response to a global flag, _button_flag_, defined as shown:
+The final, debounced code configuration is entirely in **main.c** (included in this repository). To allow debouncing, the LED pin state is toggled in _main(void)_ in response to a global flag, _button_flag_, defined as shown:
 ```C
 /* USER CODE BEGIN PV */
 
@@ -18,7 +18,7 @@ static volatile int8_t button_flag = 0;
 
 /* USER CODE END PV */
 ```
-The value of _button_flag_ is set when the interrupt processing function, _**EXTI15_10_IRQHandler**(void)_, calls a callback function, HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin). Since _**HAL_GPIO_EXTI_Callback**_ is initially defined with the \__weak_ keyword, and can be overridden with a new definition in **main.c**:
+The value of _button_flag_ is set when the interrupt processing function, _**EXTI15_10_IRQHandler**(void)_, calls a callback function, _**HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)**_. Since _**HAL_GPIO_EXTI_Callback**_ is initially defined with the \__weak_ keyword, it can be overridden with a new definition in **main.c**:
 ```C
 /* USER CODE BEGIN 4 */
 // Override the callback function which is called by the intterupt
