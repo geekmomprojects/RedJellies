@@ -1,4 +1,7 @@
 # Assignment 4: Blinky is as Blinky Does
+On your final project board, make blinky for yourself. Then add a button to turn the LED on and off. Bonus points for making the button cause an interrupt. Triple bonus points for debouncing the button signal.
+
+What are the hardware registers that cause the LED to turn on and off? (From the processor manual, don’t worry about initialization.) What are the button registers that you read? Can you read that memory directly and see the button change in a debugger or by printing out the associated memory?
 
 <img src="blinky.gif">
 
@@ -38,16 +41,24 @@ I didn’t come up with this solution by myself. It took a fair amount of Googli
 Timer TIM16 is configured to track time for the debouncing process. It is a 16 bit timer not used for any other process. I’m still a bit confused by the prescaler settings, but I followed the directions in a DigiKey (Shawn Hymel) video on STM32Cube coding to try to figure it all out. From the Clock Configuration tab in STM32Cube, it appears the default clock speed is 4 MHz. I set the prescaler to 8000, for a clock frequency of 500 Hz or a clock rate of 2 ms/tick. I debounced over a period of 10 ticks = 20 ms, which may be short, but seems to work fine in practice. The relevant debouncing code from _main()_ is shown below:
 
 ```C
-/* USER CODE BEGIN 4 */
-// Override the callback function which is called by the intterupt
-// processing function. If the interrupt came from our button pin,
-// set the flag to 1
-void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
-	if (GPIO_Pin == BUTTON_Pin) {
-		button_flag = 1;
-	}
-}
-/* USER CODE END 4 */
+ /* USER CODE BEGIN 1 */
+
+  // Track whether we are debouncing
+  static uint8_t		debouncing = 0;
+
+  // Record the time the button was pushed
+  static int16_t 		last_flag_time;
+
+  // Local variables
+  uint16_t 				timer_val;
+  GPIO_PinState 		button_state;
+
+
+  // UART output helpful for debugging
+  //char uart_buf[50];
+  //int uart_buf_len;
+
+  /* USER CODE END 1 */
 ```
 .
 .
@@ -83,4 +94,6 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
     /* USER CODE END WHILE */
 ```
 ## Register Values
+As stated, the LED and push button are connected to GPIO pins 11 and 12 respectively. From the user manual, each the GPIO pin has two 32-bit data registers, GPIOx_IDR and GPIOx_ODR. So, if we can find the register addresses of GPIO11_ODR and GPIO12_IDR we should be able to observe the data changing for the LED and Push button directly. I was able to use the STM32Cube "Expression" Window to track the values of BUTTON_GPIO_PORT->IDR/ODR, and LED1_GPIO_PORT->IDR/ODR. Tracking the state of the 11th and 12th bit of these 32 bit integers should give the state of the LED & Push Button data in the register.
 
+<img src="Stm32Capture.JPG">
